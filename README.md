@@ -224,6 +224,50 @@ Using Postgres -- TypeORM.
 
 npm install pg typeorm @nestjs/typeorm --save
 
+Connection to Postgres
+
+- Create a config folder --> `typeorm.config.ts` file
+
+Connect DB to Module
+
+- Import to `typeorm.config.ts` file in to the `app.module.ts`
+
+Create Entity
+
+- Create Entity Folder --> `board.entity.ts` file
+
+Why We Need Entity
+
+```
+CREATE TABLE board(
+  id INTEGER AUTO INCREMENT PRIMARY KEY, title VARCHAR(255) NOT NULL, description VARCHAR(255) NOT NULL
+)
+```
+
+To create a Table like the above. We can do it with easy using TypeORM. In TypeORM it is a class that is converted to a database table, so instead of doing the above, creating a class and define columns and where the class is the table.
+
+`@Entity(): ` The Entity() decorator class is used to indicate that the Board class is an entity. This part that CREATE TABLE board.
+
+`@PrimaryGeneratedColumn(): ` This decorator class is used to indicate that the id column is the primary key column of the Board entity.
+
+`@Column(): ` This decorator class is used to represent other columns such as title and description of the Board entity.
+
+The Entity class Board is created And TypeORM automatically creates a Table corresponding to the Board entity in the our Database with a name board...
+
+## Next Creating A Repository
+
+Repository works with entity objects.
+It handles finding, inserting, updating, deleting entities and more...
+
+##### Image....
+
+Manipulation (INSERT, FIND, DELETE) On database can be done in the Repository, Not in the Service.
+This convetion is called `Repository Pattern`
+
+- Create a repository folder --> `board.repository.ts` file
+
+- In other to use Repository created in other files (Injectable). Import the repository into board.module.
+
 ## Test
 
 ```bash
