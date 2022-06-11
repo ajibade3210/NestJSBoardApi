@@ -1,4 +1,4 @@
-## Description
+## Exploring Nest Js In-Depth
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
@@ -22,19 +22,21 @@ $ npm run start:prod
 
 ## What Is Nest Js
 
-Nest Js Is a framework for building efficient and scalable Node js server side applications. It uses Progressive Javascript, is built with Typescript fully supported and enables the use of elements of OOp, functional programming and functional reactive programming.
+Nest Js Is a framework for building efficient and scalable Node js server side applications. It uses Progressive Javascript, is built with Typescript fully supported and enables the use of elements of OOP, functional programming and functional reactive programming.
 
-## Internally Nest uses a Powerful HTTP server framework like Express (Default) and can optionally be configured to use Fastify.
+## Internally
 
-Nest Prvides a level of abstration on top of these common Node.js framework (Express/Fastify) but exposes the API directly to developers. This gives developers the freedom to use the numerous third-party modules avaliable on the underlying platform.
+Nest uses a Powerful HTTP server framework like Express (Default) and can optionally be configured to use Fastify.
+
+Nest Provides a level of abstration on top of these common Node.js framework (Express/Fastify) but exposes the API directly to developers. This gives developers the freedom to use the numerous third-party modules avaliable on the underlying platform.
 
 The Nest Architecture is heavily inssired by Angular.
 
 ## Create a Module
 
-nest g module name
+`nest g module name`
 
-After runnig this a module folde file is created and imported automatically to app.module.ts file.
+After runnig this a module file is created and imported automatically to app.module.ts file.
 
 ## Controller
 
@@ -42,17 +44,17 @@ This is defined by decorating a class with the @Contolller decorators
 
 Decorators take argumennts as "Paths" that are processed by the controlller.
 
-## Handlers
+### Handlers
 
 Are Simple methods within contorller classes decorated with decorators eg @Get @Put @Post
 
-## Create Board controller
+### Create Board controller
 
-nest g controller boards --no-spec
+`nest g controller boards --no-spec`
 
 After runnig this a controller folder file is created and imported automatically to app.module.ts file.
 
-## provider
+## Provider
 
 Provider is a fundamental concept in Nest. Most of the base Nest classes can be treated as provider, such as services, repositories, factories and helper. The main idea of the provider is that it can be injected as a dependency. This means that objects can create many different relationship with each other and mostof the ability to connect instances of object can be delegated to nest runtime system.
 
@@ -64,19 +66,22 @@ It is wrapped with the @injectable decorator and provided to module, and this se
 
 The service handles tasks such s valudating data in the controller or creating items in the database
 
-## How to use a Services
+### How to use a Services
 
-nest -g service boards --no-spec
+`nest -g service boards --no-spec`
 
 To make the service avaliable to controller we use dependecy injection.
 
-## registering a Provider
+### registering a Provider
+
+---
 
 ## Defining Model for the Modules..
 
 In order to define what data is required for oour module, we are to create a model to save data.
 
-Creatin Model.
+### Creating Model.
+
 We can use CLASS or INTERFACE..
 
 `Interface` -- Only the type of the variable is checked
@@ -114,13 +119,15 @@ Create get and post method in the service and inject in controllers
 
 ## Data Transfer Object (DTO)
 
-Vata transfet Object is an `object for exchanging data between layers`.
+Data transfer Object is an `object for exchanging data between layers`.
 
 It is an object used to get data from DB and send it to service or Controller.
 
 A DTO is an object that defines how data is transmitted over a network. It can be defined using an interface or class (However Nest recommends Using Class...)
 
-Why use Data ransfer Objects DTO?
+DTO on its own is more of a guide on how to consume the API. Stating the kind of shape a request body is expected to be, It doesnt actually run any validation on its own.
+
+### Why use Data transfer Objects DTO?
 
 - efficient in checking data validity
 - makes the code more stable. it is also used as a type in Typescript.
